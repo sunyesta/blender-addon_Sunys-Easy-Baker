@@ -6,10 +6,15 @@ from bpy.props import BoolProperty, FloatProperty, IntProperty, StringProperty, 
 
 
 class SunysEasyBaker_SceneProps(PropertyGroup):
-    isSet: BoolProperty(
-        name="Is set",
-        description="Was it written at least once?",
-        default=False)
+    lowPrefix: StringProperty(
+        name="low prefix",
+        description="",
+        default="_low")
+
+    highPrefix: StringProperty(
+        name="high prefix",
+        description="",
+        default="_high")
 
 
 def register():
@@ -26,6 +31,9 @@ def unregister():
     bpy.utils.unregister_class(SunysEasyBaker_SceneProps)
     del bpy.types.Scene.SunysEasyBaker
 
+
+def getSceneProps():
+    return bpy.context.scene.SunysEasyBaker
 
 # userConfig = bpy.context.scene.ZBBQ_PreviewRenderUserConfig
 # ZBBQ_PreviewRenderConfigForSaving
